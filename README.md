@@ -1,6 +1,6 @@
-# Vue Toast + Messenger + Etc
+# Vue: Toast + Messenger + Etc
 
-## Trying out simple state management and building to full RxJS services and multiple stores
+##  🔨 Vuex state management and full RxJS services
 
 - [VUEX Docs](https://next.vuex.vuejs.org/guide/actions.html)
 
