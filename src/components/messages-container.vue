@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Messages from "@/components/messages";
-import SendMessages from "@/components/send-messages";
+import Messages from "@/components/messages/messages";
+import SendMessages from "@/components/messages/send-messages";
 export default {
 name: "messages-container",
   components: {SendMessages, Messages}
