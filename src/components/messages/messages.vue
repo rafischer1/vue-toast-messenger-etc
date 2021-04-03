@@ -53,11 +53,12 @@ name: "messages", data () {
     color: #333333;
   }
 
-  .trash:hover {
-    color: #db4a4a;
+  .trash:active {
+    color: #ff6b6b;
+    text-decoration: underline;
   }
 
-  .trash:active {
-    color: #ff7171;
+  .trash:hover {
+    color: #ff8383;
   }
 </style>

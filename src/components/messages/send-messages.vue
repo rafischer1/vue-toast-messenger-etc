@@ -1,12 +1,14 @@
 <template>
-<div class="msg-buttons">
-  <label for="msg">Message:
-    <input id="msg" type="text" v-model="msg" />
-  </label>
-  <br />
-  <button @click="sendMessage()" class="btn btn-primary">Send Message</button>
-  <button :disabled="messages.length === 0"  v-bind:class="{'disabled': messages.length === 0}" @click="clearMessages()" class="btn btn-secondary">{{clearBtnText}}</button>
-</div>
+ <div class="msg-buttons">
+   <label for="msg">Message:
+     <input id="msg" type="text" v-model="msg" />
+   </label>
+   <button @click="sendMessage()" class="btn btn-primary">Send Message</button>
+   <button :disabled="messages.length === 0"
+           v-bind:class="{'disabled': messages.length === 0}"
+           @click="clearMessages()" class="btn btn-secondary">{{clearBtnText}}
+   </button>
+ </div>
 </template>
 
 <script>
@@ -71,5 +73,6 @@ input {
 .disabled {
   background: #bababa;
   color: #333333;
+  cursor: not-allowed;
 }
 </style>

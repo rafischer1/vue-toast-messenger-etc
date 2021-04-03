@@ -1,7 +1,7 @@
 <template>
   <div class="toast-parent">
     <div class="toast-div" v-bind:class="type">
-      {{text}}
+      {{ text.toUpperCase() }}
     </div>
   </div>
 </template>
