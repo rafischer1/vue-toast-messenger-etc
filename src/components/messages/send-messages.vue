@@ -5,7 +5,7 @@
   </label>
   <br />
   <button @click="sendMessage()" class="btn btn-primary">Send Message</button>
-  <button @click="clearMessages()" class="btn btn-secondary">{{clearBtnText}}</button>
+  <button :disabled="messages.length === 0"  v-bind:class="{'disabled': messages.length === 0}" @click="clearMessages()" class="btn btn-secondary">{{clearBtnText}}</button>
 </div>
 </template>
 
@@ -17,8 +17,16 @@ export default {
   data: function () {
     return {
       msg: "",
-      clearBtnText: "Clear Messages"
+      clearBtnText: "Clear Messages",
+      messages: []
     }
+  },
+  created () {
+    this.subscription = messagesService.getMessage().subscribe(message =>
+        message ?  this.messages.push(message) :  this.messages = []);
+  },
+  beforeUnmount () {
+    this.subscription.unsubscribe();
   },
   methods: {
     sendMessage() {
@@ -50,11 +58,6 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  vertical-align: middle;
-}
-
-.btn {
-  height: 40px;
 }
 
 label {
@@ -63,5 +66,10 @@ label {
 
 input {
   color: whitesmoke;
+}
+
+.disabled {
+  background: #bababa;
+  color: #333333;
 }
 </style>

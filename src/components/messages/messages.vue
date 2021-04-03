@@ -15,24 +15,16 @@ name: "messages", data () {
     };
   },
   created () {
-    // subscribe to home component messages
-    this.subscription = messagesService.getMessage().subscribe(message => {
-      if (message) {
-        // add message to local state if not empty
-        this.messages.push(message);
-      } else {
-        // clear messages when empty message received
-        this.messages = [];
-      }
-    });
+    this.subscription = messagesService.getMessage().subscribe(message =>
+        message ?  this.messages.push(message) :  this.messages = []);
   },
   beforeUnmount () {
-    // unsubscribe to ensure no memory leaks
     this.subscription.unsubscribe();
   },
   methods: {
    deleteMsg(index) {
      this.messages.splice(index, 1)
+     if (this.messages.length === 0) messagesService.clearMessages();
      this.$store.commit("showToast", {text: "Deleted", type: "warn"})
    },
   }
@@ -55,7 +47,7 @@ name: "messages", data () {
 
   .trash {
     float: right;
-    margin: -3px 5px 3px 0;
+    margin: -2px 5px 0 0;
     background: none;
     cursor: pointer;
     color: #333333;
