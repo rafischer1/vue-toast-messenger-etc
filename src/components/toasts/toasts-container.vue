@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import ErrorBtn from "@/components/toast-buttons/error-btn";
-import WarnBtn from "@/components/toast-buttons/warn-btn";
-import InfoBtn from "@/components/toast-buttons/info-btn";
-import SuccessBtn from "@/components/toast-buttons/success-btn";
+import ErrorBtn from "@/components/toasts/toast-buttons/error-btn";
+import WarnBtn from "@/components/toasts/toast-buttons/warn-btn";
+import InfoBtn from "@/components/toasts/toast-buttons/info-btn";
+import SuccessBtn from "@/components/toasts/toast-buttons/success-btn";
 export default {
-name: "click-counter-container",
+name: "toasts-container",
   components: {SuccessBtn, InfoBtn, WarnBtn, ErrorBtn}
 }
 </script>

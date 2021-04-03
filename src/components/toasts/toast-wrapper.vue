@@ -6,7 +6,7 @@
 
 <script>
 import store from "@/store"
-import Toast from "@/components/toast";
+import Toast from "@/components/toasts/toast";
 
 export default {
 name: "toast-wrapper",

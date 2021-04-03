@@ -1,20 +1,20 @@
 <template>
-     <click-counter-container></click-counter-container>
+     <toasts-container></toasts-container>
      <messages-container></messages-container>
      <toast-wrapper></toast-wrapper>
 </template>
 
 <script>
-import ClickCounterContainer from "@/components/click-counter-container";
-import MessagesContainer from "@/components/messages-container";
-import ToastWrapper from "@/components/toast-wrapper";
+import MessagesContainer from "@/components/messages/messages-container";
+import ToastWrapper from "@/components/toasts/toast-wrapper";
+import ToastsContainer from "@/components/toasts/toasts-container";
 
 export default {
   name: 'App',
   components: {
+    ToastsContainer,
     ToastWrapper,
     MessagesContainer,
-    ClickCounterContainer,
   },
 }
 </script>
