@@ -1,19 +1,19 @@
 <template>
      <click-counter-container></click-counter-container>
      <messages-container></messages-container>
-     <toast></toast>
+     <toast-wrapper></toast-wrapper>
 </template>
 
 <script>
 import ClickCounterContainer from "@/components/click-counter-container";
-import Toast from "@/components/toast";
 import MessagesContainer from "@/components/messages-container";
+import ToastWrapper from "@/components/toast-wrapper";
 
 export default {
   name: 'App',
   components: {
+    ToastWrapper,
     MessagesContainer,
-    Toast,
     ClickCounterContainer,
   },
 }

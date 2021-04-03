@@ -6,7 +6,8 @@ export default createStore({
   },
   mutations: {
     showToast (state, toast) {
-      state.toasts = [toast]
+      const _old = [...state.toasts]
+      state.toasts = [toast, ..._old]
       this.dispatch("resetAsync")
     },
     getToasts (state) {
@@ -15,12 +16,22 @@ export default createStore({
     resetToasts (state) {
       state.toasts = []
     },
+    resetToast (state) {
+      state.toasts.pop()
+    },
   },
   actions: {
-    resetAsync({commit}) {
-      setTimeout(() => {
-        commit("resetToasts")
-      }, 1500)
+    resetAsync({commit, state}) {
+      if (state.toasts.length > 0) {
+        setTimeout(() => {
+          commit("resetToast")
+        }, 1700)
+      } else {
+        setTimeout(() => {
+          commit("resetToasts")
+        }, 1700)
+      }
+
     }
   },
   modules: {

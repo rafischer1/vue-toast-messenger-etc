@@ -5,7 +5,7 @@
   </label>
   <br />
   <button @click="sendMessage()" class="btn btn-primary">Send Message</button>
-  <button @click="clearMessages()" class="btn btn-secondary">Clear Messages</button>
+  <button @click="clearMessages()" class="btn btn-secondary">{{clearBtnText}}</button>
 </div>
 </template>
 
@@ -16,7 +16,8 @@ export default {
   name: "send-messages",
   data: function () {
     return {
-      msg: ""
+      msg: "",
+      clearBtnText: "Clear Messages"
     }
   },
   methods: {
