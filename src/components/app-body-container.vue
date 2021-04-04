@@ -1,15 +1,15 @@
 <template>
   <div class="app-body">
     <draggable dragArea list-group :list="list" @change="log">
-     <div class="icon-container" id="{{list[0]}}">
+     <div class="icon-container" ref="toasts">
        <toasts-icon-container v-if="toastsIconView"></toasts-icon-container>
        <toasts-container v-if="!toastsIconView"></toasts-container>
      </div>
-     <div class="icon-container" id="{{list[1]}}">
+     <div class="icon-container" ref="messages">
        <message-icon-container v-if="messagesIconView"></message-icon-container>
        <messages-container v-if="!messagesIconView"></messages-container>
      </div>
-     <div class="icon-container" id="{{list[2]}}">
+     <div class="icon-container" ref="contact">
        <contact-icon-container v-if="contactIconView"></contact-icon-container>
        <contact-container v-if="!contactIconView"></contact-container>
      </div>
@@ -44,12 +44,12 @@ name: "app-body-container",
       toastsIconView: true,
       messagesIconView: true,
       contactIconView: true,
-      list: ["toasts", "messages", "contact"]
+      list: [this.$refs["toasts"], this.$refs["messages"], this.$refs["contact"]]
     }
   },
   methods: {
     log(event) {
-      console.log(event)
+      console.table(event)
     },
   },
   created() {
