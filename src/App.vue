@@ -1,20 +1,17 @@
 <template>
-     <toasts-container></toasts-container>
-     <messages-container></messages-container>
+     <app-body-container></app-body-container>
      <toast-wrapper></toast-wrapper>
 </template>
 
 <script>
-import MessagesContainer from "@/components/messages/messages-container";
 import ToastWrapper from "@/components/toasts/toast-wrapper";
-import ToastsContainer from "@/components/toasts/toasts-container";
+import AppBodyContainer from "@/components/app-body-container";
 
 export default {
   name: 'App',
   components: {
-    ToastsContainer,
+    AppBodyContainer,
     ToastWrapper,
-    MessagesContainer,
   },
 }
 </script>
