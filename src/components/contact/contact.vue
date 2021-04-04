@@ -1,6 +1,10 @@
 <template>
+  <div class="group-1">
+    <div>Robert A Fischer</div>
+    <div>Boulder, Colorado</div>
+  </div>
    <div class="contact-container">
-     <a href="mailto: artiefischer@gmail.com">Email Me</a>
+     <a href="mailto: artiefischer@gmail.com">Email</a>
      <a target="_blank" href="https://github.com/rafischer1">Github</a>
      <a target="_blank" href="https://www.linkedin.com/in/robert-a-fischer/">LinkedIn</a>
    </div>
@@ -16,27 +20,35 @@ name: "contact",
   .contact-container {
     background: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+  }
+
+  .group-1 {
+    display: flex;
+    justify-content: space-evenly;
+    background: none;
+  }
+
+  .group-1 > div {
+    background: none;
+    color: whitesmoke;
+    margin-bottom: 10px;
+
   }
 
   a {
-    background: none;
-    color: whitesmoke;
+    background: whitesmoke;
+    color: #333333;
     text-decoration: none;
-    border: 2px solid whitesmoke;
+    border: 1px solid whitesmoke;
     border-radius: 5px;
     padding: 1%;
   }
 
-  a:hover {
-    color: #333333;
-    border: 2px solid #4a999a;
-    background: whitesmoke;
-  }
 
   a:active {
     color: #333333;
-    border: 2px solid #6cdedf;
-    background: whitesmoke;
+    background: #d7d7d7;
+    border: 1px solid #d7d7d7;
   }
 </style>

@@ -1,15 +1,17 @@
 <template>
-  <div class="icon-container">
-    <toasts-icon-container v-if="toastsIconView"></toasts-icon-container>
-    <toasts-container v-if="!toastsIconView"></toasts-container>
-  </div>
-  <div class="icon-container">
-    <message-icon-container v-if="messagesIconView"></message-icon-container>
-    <messages-container v-if="!messagesIconView"></messages-container>
-  </div>
-  <div class="icon-container">
-    <contact-icon-container v-if="contactIconView"></contact-icon-container>
-    <contact-container v-if="!contactIconView"></contact-container>
+  <div class="app-body">
+   <div class="icon-container">
+     <toasts-icon-container v-if="toastsIconView"></toasts-icon-container>
+     <toasts-container v-if="!toastsIconView"></toasts-container>
+   </div>
+   <div class="icon-container">
+     <message-icon-container v-if="messagesIconView"></message-icon-container>
+     <messages-container v-if="!messagesIconView"></messages-container>
+   </div>
+   <div class="icon-container">
+     <contact-icon-container v-if="contactIconView"></contact-icon-container>
+     <contact-container v-if="!contactIconView"></contact-container>
+   </div>
   </div>
 </template>
 
@@ -59,9 +61,11 @@ name: "app-body-container",
 }
 </script>
 
-<style scoped>
+<style>
    .icon-container {
      display: flex;
      flex-direction: row;
    }
+
+
 </style>
