@@ -6,7 +6,7 @@
 
 ### 📫 Messages sent using RxJS Subjects + Observables through a service
 
-### 🌀 RxJS Subject control toggling of side nav icons / components
+### 🌀 RxJS Subjects control toggling of side nav icons / components
 
 [Deployed URL: fischer-vuex-vuerx.surge.sh](http://fischer-vuex-vuerx.surge.sh/)
 
