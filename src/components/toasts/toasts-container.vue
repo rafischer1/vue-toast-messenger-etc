@@ -1,5 +1,4 @@
 <template>
-
   <div class="container">
     <toggle-btn v-bind:icon-type="'toasts'"></toggle-btn>
     <div class="btns-container">
