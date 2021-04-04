@@ -10,9 +10,16 @@ name: "toggle-btn",
   props: ["iconType"],
   methods: {
     toggle() {
-      this.iconType === "toasts" ?
-          iconsService.toggleToastsIcon(true) :
-          iconsService.toggleMessagesIcon(true)
+      switch (this.iconType) {
+         case "toasts":
+           iconsService.toggleToastsIcon(true)
+              break;
+           case "messages":
+             iconsService.toggleMessagesIcon(true)
+              break;
+             case "contact":
+               iconsService.toggleContactIcon(true)
+      }
     }
   }
 }
