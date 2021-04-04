@@ -36,7 +36,7 @@ name: "contact",
 
   a:active {
     color: #333333;
-    border: 2px solid #6cdedf);
+    border: 2px solid #6cdedf;
     background: whitesmoke;
   }
 </style>
