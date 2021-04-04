@@ -1,17 +1,19 @@
 <template>
   <div class="app-body">
-   <div class="icon-container">
-     <toasts-icon-container v-if="toastsIconView"></toasts-icon-container>
-     <toasts-container v-if="!toastsIconView"></toasts-container>
-   </div>
-   <div class="icon-container">
-     <message-icon-container v-if="messagesIconView"></message-icon-container>
-     <messages-container v-if="!messagesIconView"></messages-container>
-   </div>
-   <div class="icon-container">
-     <contact-icon-container v-if="contactIconView"></contact-icon-container>
-     <contact-container v-if="!contactIconView"></contact-container>
-   </div>
+    <draggable dragArea list-group :list="list" @change="log">
+     <div class="icon-container" id="{{list[0]}}">
+       <toasts-icon-container v-if="toastsIconView"></toasts-icon-container>
+       <toasts-container v-if="!toastsIconView"></toasts-container>
+     </div>
+     <div class="icon-container" id="{{list[1]}}">
+       <message-icon-container v-if="messagesIconView"></message-icon-container>
+       <messages-container v-if="!messagesIconView"></messages-container>
+     </div>
+     <div class="icon-container" id="{{list[2]}}">
+       <contact-icon-container v-if="contactIconView"></contact-icon-container>
+       <contact-container v-if="!contactIconView"></contact-container>
+     </div>
+    </draggable>
   </div>
 </template>
 
@@ -24,10 +26,12 @@ import {of} from "rxjs";
 import {iconsService} from "@/_services";
 import ContactIconContainer from "@/components/contact-icon/contact-icon-container";
 import ContactContainer from "@/components/contact/contact-container";
+import { VueDraggableNext } from 'vue-draggable-next'
 
 export default {
 name: "app-body-container",
   components: {
+    draggable: VueDraggableNext,
     ContactContainer,
     ContactIconContainer, MessageIconContainer, ToastsIconContainer, MessagesContainer, ToastsContainer},
   toastsIconSubscription: of(false),
@@ -40,7 +44,13 @@ name: "app-body-container",
       toastsIconView: true,
       messagesIconView: true,
       contactIconView: true,
+      list: ["toasts", "messages", "contact"]
     }
+  },
+  methods: {
+    log(event) {
+      console.log(event)
+    },
   },
   created() {
      this.toastsIconSubscription = iconsService.toastsIcon$().subscribe(active => {
@@ -66,6 +76,5 @@ name: "app-body-container",
      display: flex;
      flex-direction: row;
    }
-
 
 </style>

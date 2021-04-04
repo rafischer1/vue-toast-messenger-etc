@@ -11,6 +11,8 @@
     "core-js": "^3.6.5",
     "rxjs": "^6.6.7",
     "vue": "^3.0.0",
+    "vue-draggable-next": "^2.0.1",
+    "vue-loader-v16": "*",
     "vue-rx": "^6.2.0",
     "vuex": "^4.0.0-0"
   },
