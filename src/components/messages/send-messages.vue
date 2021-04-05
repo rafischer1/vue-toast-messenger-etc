@@ -1,9 +1,11 @@
 <template>
  <div class="msg-buttons">
-   <label for="msg">Message:
-     <input id="msg" type="text" v-model="msg" />
-   </label>
-   <button @click="sendMessage()" class="btn btn-primary">Send Message</button>
+   <form @submit="sendMessage($event)">
+     <label for="msg">Message:
+       <input id="msg" type="text" v-model="msg" />
+     </label>
+   </form>
+   <button @click="sendMessage" class="btn btn-primary">Send Message</button>
    <button :disabled="messages.length === 0"
            v-bind:class="{'disabled': messages.length === 0}"
            @click="clearMessages()" class="btn btn-secondary">{{clearBtnText}}
@@ -31,7 +33,8 @@ export default {
     this.subscription.unsubscribe();
   },
   methods: {
-    sendMessage() {
+    sendMessage(event) {
+      event.preventDefault()
       if (this.msg.length > 0) {
         messagesService.sendMessage(this.msg);
         this.$store.commit("showToast", {text: "Sent! 💌", type: "success"})
@@ -62,12 +65,18 @@ export default {
   justify-content: space-between;
 }
 
+form {
+  background: none;
+  margin: auto auto;
+}
+
 label {
   margin-top: 1%;
 }
 
 input {
   color: whitesmoke;
+  background: #333333;
 }
 
 .disabled {

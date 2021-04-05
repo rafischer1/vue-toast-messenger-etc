@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 div.container {
-  background: linear-gradient(#363636, #ffdd6f);
+  background: linear-gradient(#363636, #e24e42);
   width: 66%;
   margin: 0 auto;
   padding: 2%;

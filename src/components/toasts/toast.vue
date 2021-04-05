@@ -25,13 +25,11 @@ div.toast-parent {
   background: whitesmoke;
   padding: 5px 2px;
   color: #333333;
-  width: 10%;
+  width: 20%;
   border-radius: 5px;
   font-size: 18px;
   margin-right: 10px;
   position: relative;
-  bottom: 80px;
-  right: 20px;
 }
 
 .success {
@@ -50,7 +48,7 @@ div.toast-parent {
 }
 
 .alert{
-  border: 1px solid #ff6b6b;
-  background: #ff6b6b;
+  border: 1px solid #e24e42;
+  background: #e24e42;
 }
 </style>

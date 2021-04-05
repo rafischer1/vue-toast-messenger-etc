@@ -1,18 +1,18 @@
 <template>
   <div class="app-body">
     <draggable dragArea list-group :list="list" @change="log">
-     <div class="icon-container" ref="toasts">
-       <toasts-icon-container v-if="toastsIconView"></toasts-icon-container>
-       <toasts-container v-if="!toastsIconView"></toasts-container>
-     </div>
-     <div class="icon-container" ref="messages">
-       <message-icon-container v-if="messagesIconView"></message-icon-container>
-       <messages-container v-if="!messagesIconView"></messages-container>
-     </div>
-     <div class="icon-container" ref="contact">
-       <contact-icon-container v-if="contactIconView"></contact-icon-container>
-       <contact-container v-if="!contactIconView"></contact-container>
-     </div>
+      <div class="icon-container toasts" ref="toasts">
+        <toasts-icon-container v-if="toastsIconView"></toasts-icon-container>
+        <toasts-container v-if="!toastsIconView"></toasts-container>
+      </div>
+      <div class="icon-container messages" ref="messages">
+        <message-icon-container v-if="messagesIconView"></message-icon-container>
+        <messages-container v-if="!messagesIconView"></messages-container>
+      </div>
+      <div class="icon-container contact" ref="contact">
+        <contact-icon-container v-if="contactIconView"></contact-icon-container>
+        <contact-container v-if="!contactIconView"></contact-container>
+      </div>
     </draggable>
   </div>
 </template>
@@ -44,13 +44,22 @@ name: "app-body-container",
       toastsIconView: true,
       messagesIconView: true,
       contactIconView: true,
-      list: [this.$refs["toasts"], this.$refs["messages"], this.$refs["contact"]]
+      list: []
     }
   },
   methods: {
     log(event) {
       console.table(event)
+      if (event) {
+        this.$store.commit("showToast", {text: "🚧 Under Construction 🚧", type: "warn"})
+      }
     },
+    buildList() {
+      this.list = [this.$refs["toasts"], this.$refs["messages"], this.$refs["contact"]]
+    }
+  },
+  mounted() {
+   this.buildList()
   },
   created() {
      this.toastsIconSubscription = iconsService.toastsIcon$().subscribe(active => {

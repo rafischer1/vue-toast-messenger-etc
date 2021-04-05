@@ -21,3 +21,17 @@
 - [VUEX Docs](https://next.vuex.vuejs.org/guide/actions.html)
 
 - [VUE-RX Docs](https://github.com/vuejs/vue-rx)
+
+------
+
+### colors
+
+```vue
+<template style="color: #e24e42; ">Error/Alert</template>
+```
+
+```html
+<div style="color: #333333;">Dark</div>
+```
+
+

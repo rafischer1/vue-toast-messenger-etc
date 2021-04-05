@@ -15,13 +15,13 @@ name: "error-btn",
 
 <style scoped>
 .alert-btn {
-  border: 1px solid #ff6b6b;
-  background: #ff6b6b;
+  border: 1px solid #e24e42;
+  background: #e24e42;
 }
 
 .alert-btn:active {
-  border: 1px solid #ff8383;
-  background: #ff8383;
+  border: 1px solid #e8665c;
+  background: #e8665c;
 }
 
 </style>

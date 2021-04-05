@@ -1,5 +1,5 @@
 <template>
-   <icon v-bind:title="'C'" v-bind:color="'#ffdd6f'"></icon>
+   <icon v-bind:title="'C'" v-bind:color="'#e24e42'"></icon>
 </template>
 
 <script>
