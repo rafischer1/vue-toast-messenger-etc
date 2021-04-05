@@ -9,8 +9,8 @@
 <script>
 export default {
   name: "toast",
-  props: ["text", "type"],
-}
+  props: ["text", "type"]
+};
 </script>
 
 <style scoped>
@@ -47,7 +47,7 @@ div.toast-parent {
   border: 1px solid #fff37a;
 }
 
-.alert{
+.alert {
   border: 1px solid #e24e42;
   background: #e24e42;
 }

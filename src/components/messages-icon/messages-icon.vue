@@ -5,16 +5,14 @@
 <script>
 import Icon from "@/components/icon";
 export default {
-name: "messages-icon",
-  components: {Icon},
-  data: function () {
+  name: "messages-icon",
+  components: { Icon },
+  data: function() {
     return {
       color: "#4a999a"
-    }
+    };
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

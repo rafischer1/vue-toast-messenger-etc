@@ -1,6 +1,6 @@
 <template>
-     <app-body-container></app-body-container>
-     <toast-wrapper></toast-wrapper>
+  <app-body-container></app-body-container>
+  <toast-wrapper></toast-wrapper>
 </template>
 
 <script>
@@ -8,12 +8,12 @@ import ToastWrapper from "@/components/toasts/toast-wrapper";
 import AppBodyContainer from "@/components/app-body-container";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     AppBodyContainer,
-    ToastWrapper,
-  },
-}
+    ToastWrapper
+  }
+};
 </script>
 
 <style>

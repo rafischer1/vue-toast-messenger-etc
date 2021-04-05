@@ -12,9 +12,9 @@ import SendMessages from "@/components/messages/send-messages";
 import ToggleBtn from "@/components/toggle-btn";
 
 export default {
-name: "messages-container",
-  components: {ToggleBtn, SendMessages, Messages},
-}
+  name: "messages-container",
+  components: { ToggleBtn, SendMessages, Messages }
+};
 </script>
 
 <style scoped>

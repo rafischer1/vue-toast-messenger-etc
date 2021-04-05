@@ -1,21 +1,19 @@
 <template>
- <contact-icon @click="toggle()"></contact-icon>
+  <contact-icon @click="toggle()"></contact-icon>
 </template>
 
 <script>
 import ContactIcon from "@/components/contact-icon/contact-icon";
-import {iconsService} from "@/_services";
+import { iconsService } from "@/_services";
 export default {
   name: "contact-icon-container",
-  components: {ContactIcon},
+  components: { ContactIcon },
   methods: {
     toggle() {
-      iconsService.toggleContactIcon(false)
+      iconsService.toggleContactIcon(false);
     }
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

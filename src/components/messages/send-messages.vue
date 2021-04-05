@@ -1,16 +1,21 @@
 <template>
- <div class="msg-buttons">
-   <form @submit="sendMessage($event)">
-     <label for="msg">Message:
-       <input id="msg" type="text" v-model="msg" />
-     </label>
-   </form>
-   <button @click="sendMessage" class="btn btn-primary">Send Message</button>
-   <button :disabled="messages.length === 0"
-           v-bind:class="{'disabled': messages.length === 0}"
-           @click="clearMessages()" class="btn btn-secondary">{{clearBtnText}}
-   </button>
- </div>
+  <div class="msg-buttons">
+    <form @submit="sendMessage($event)">
+      <label for="msg"
+        >Message:
+        <input id="msg" type="text" v-model="msg" />
+      </label>
+    </form>
+    <button @click="sendMessage" class="btn btn-primary">Send Message</button>
+    <button
+      :disabled="messages.length === 0"
+      v-bind:class="{ disabled: messages.length === 0 }"
+      @click="clearMessages()"
+      class="btn btn-secondary"
+    >
+      {{ clearBtnText }}
+    </button>
+  </div>
 </template>
 
 <script>
@@ -18,43 +23,46 @@ import { messagesService } from "@/_services";
 
 export default {
   name: "send-messages",
-  data: function () {
+  data: function() {
     return {
       msg: "",
       clearBtnText: "Clear Messages",
       messages: []
-    }
+    };
   },
-  created () {
-    this.subscription = messagesService.getMessage().subscribe(message =>
-        message ?  this.messages.push(message) :  this.messages = []);
+  created() {
+    this.subscription = messagesService
+      .getMessage()
+      .subscribe(message =>
+        message ? this.messages.push(message) : (this.messages = [])
+      );
   },
-  beforeUnmount () {
+  beforeUnmount() {
     this.subscription.unsubscribe();
   },
   methods: {
     sendMessage(event) {
-      event.preventDefault()
+      event.preventDefault();
       if (this.msg.length > 0) {
         messagesService.sendMessage(this.msg);
-        this.$store.commit("showToast", {text: "Sent! 💌", type: "success"})
-        this.msg = ""
+        this.$store.commit("showToast", { text: "Sent! 💌", type: "success" });
+        this.msg = "";
       } else {
-        this.$store.commit("showToast", {text: "No Message", type: "alert"})
+        this.$store.commit("showToast", { text: "No Message", type: "alert" });
       }
-
     },
     clearMessages() {
       messagesService.clearMessages();
-      this.$store.commit("showToast", {text: "Cleared", type: "info"})
-      this.msg = ""
+      this.$store.commit("showToast", { text: "Cleared", type: "info" });
+      this.msg = "";
     }
   }
 };
 </script>
 
 <style scoped>
-.msg-buttons, label {
+.msg-buttons,
+label {
   color: whitesmoke;
   background: none;
 }

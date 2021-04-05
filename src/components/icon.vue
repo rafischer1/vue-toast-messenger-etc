@@ -1,18 +1,17 @@
 <template>
-   <div class="icon" v-bind:style="{border: '5px solid ' + color}">
-     <div class="title" v-bind:style="{color: color}">{{ title }}</div>
-   </div>
+  <div class="icon" v-bind:style="{ border: '5px solid ' + color }">
+    <div class="title" v-bind:style="{ color: color }">{{ title }}</div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "icon",
-  props: ["title", "color"],
-}
+  props: ["title", "color"]
+};
 </script>
 
 <style scoped>
-
 div.icon {
   cursor: pointer;
   padding: 2%;

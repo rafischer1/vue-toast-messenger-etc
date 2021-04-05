@@ -18,13 +18,12 @@ import SuccessBtn from "@/components/toasts/toast-buttons/success-btn";
 import ToggleBtn from "@/components/toggle-btn";
 
 export default {
-name: "toasts-container",
-  components: {ToggleBtn, SuccessBtn, InfoBtn, WarnBtn, ErrorBtn},
-}
+  name: "toasts-container",
+  components: { ToggleBtn, SuccessBtn, InfoBtn, WarnBtn, ErrorBtn }
+};
 </script>
 
 <style scoped>
-
 div.container {
   background: linear-gradient(#363636, #714a9a);
   padding: 2%;
@@ -41,5 +40,4 @@ div.btns-container {
   background: none;
   margin: auto auto;
 }
-
 </style>

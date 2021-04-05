@@ -1,2 +1,2 @@
-export * from "./messages.service"
-export * from "./icons.service"
+export * from "./messages.service";
+export * from "./icons.service";

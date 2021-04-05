@@ -1,8 +1,8 @@
 <template>
- <div class="container">
-   <toggle-btn v-bind:icon-type="'contact'"></toggle-btn>
-  <contact></contact>
- </div>
+  <div class="container">
+    <toggle-btn v-bind:icon-type="'contact'"></toggle-btn>
+    <contact></contact>
+  </div>
 </template>
 
 <script>
@@ -10,8 +10,8 @@ import Contact from "@/components/contact/contact";
 import ToggleBtn from "@/components/toggle-btn";
 export default {
   name: "contact-container",
-  components: {ToggleBtn, Contact}
-}
+  components: { ToggleBtn, Contact }
+};
 </script>
 
 <style scoped>
