@@ -4,13 +4,13 @@
 
 <script>
 export default {
-name: "warn-btn",
+  name: "warn-btn",
   methods: {
     warnToast() {
-      this.$store.commit("showToast", {text: "WARNING", type: "warn"})
+      this.$store.commit("showToast", { text: "WARNING", type: "warn" });
     }
   }
-}
+};
 </script>
 
 <style scoped>

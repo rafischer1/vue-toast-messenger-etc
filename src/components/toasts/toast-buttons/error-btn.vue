@@ -4,13 +4,13 @@
 
 <script>
 export default {
-name: "error-btn",
+  name: "error-btn",
   methods: {
     alertToast() {
-      this.$store.commit("showToast", {text: "OOPS!", type: "alert"})
+      this.$store.commit("showToast", { text: "OOPS!", type: "alert" });
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -23,5 +23,4 @@ name: "error-btn",
   border: 1px solid #e8665c;
   background: #e8665c;
 }
-
 </style>

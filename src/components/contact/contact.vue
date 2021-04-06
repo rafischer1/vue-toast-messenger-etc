@@ -1,6 +1,6 @@
 <template>
   <div class="group-1">
-    <div>Robert A Fischer</div>
+    <div id="name">Robert A Fischer</div>
     <div>Boulder, Colorado</div>
   </div>
   <div class="contact-container">

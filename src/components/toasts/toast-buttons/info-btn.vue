@@ -4,19 +4,19 @@
 
 <script>
 export default {
-name: "info-btn",
+  name: "info-btn",
   methods: {
     resetCount() {
-      this.toastReset()
+      this.toastReset();
     },
     addToast() {
-      this.$store.commit("resetToast")
+      this.$store.commit("resetToast");
     },
     toastReset() {
-      this.$store.commit("showToast", {text: "Information", type: "info"})
+      this.$store.commit("showToast", { text: "Information", type: "info" });
     }
   }
-}
+};
 </script>
 
 <style scoped>
