@@ -1,22 +1,15 @@
-import { shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import { expect } from "chai";
 import IconComponent from "../../src/components/icon.vue";
 
 describe("IconComponent", () => {
-  it("renders props.title when passed", () => {
+  it("renders props {title: string, color: string} when passed", () => {
     global.SVGElement = global.Element;
-    const title = "new title";
-    const wrapper = shallowMount(IconComponent, {
-      props: { title }
+    const _title = "title";
+    const _color = "blue";
+    const wrapper = mount(IconComponent, {
+      props: { title: _title, color: _color }
     });
-    expect(wrapper.text()).to.include(title);
-  });
-  it("renders props.color when passed", () => {
-    global.SVGElement = global.Element;
-    const color = "";
-    const wrapper = shallowMount(IconComponent, {
-      props: { color }
-    });
-    expect(wrapper.text()).to.include(color);
+    expect(wrapper.text()).to.include(_title, _color);
   });
 });
