@@ -6,6 +6,6 @@ describe("ToggleButtonComponent", () => {
   it("exists", () => {
     global.SVGElement = global.Element;
     const wrapper = mount(ToggleButtonComponent);
-    expect(wrapper.text()).to.include("X");
+    expect(wrapper.find(".toggle-btn").text()).to.include("X");
   });
 });
