@@ -7,13 +7,14 @@
 
 <script>
 import { paletteService } from "@/_services";
+import { map, shareReplay } from "rxjs/operators";
 
 export default {
   name: "palette-color-input",
   props: ["type", "currentColor"],
   data: function() {
     return {
-      selectedColor: paletteService.getColor(this.type)
+      selectedColor: ""
     };
   },
   methods: {
@@ -26,9 +27,17 @@ export default {
     }
   },
   created() {
-    paletteService.getColor(this.type).subscribe(color => {
-      this.selectedColor = color;
-    });
+    paletteService
+      .getColor(this.type)
+      .pipe(
+        map(color => {
+          if (color) {
+            this.selectedColor = color;
+          }
+        }),
+        shareReplay(1)
+      )
+      .subscribe();
   }
 };
 </script>
