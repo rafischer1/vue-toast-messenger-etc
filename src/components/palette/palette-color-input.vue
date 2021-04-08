@@ -1,8 +1,10 @@
 <template>
-  <label v-bind:style="{ color: selectedColor }"
-    >{{ type.toUpperCase() }}:
-    <input type="color" @change="setColor($event.target.value)" />
-  </label>
+  <div class="input-container">
+    <label v-bind:style="{ color: selectedColor }"
+      >{{ type.toUpperCase() }}:
+      <input type="color" @change="setColor($event.target.value)" />
+    </label>
+  </div>
 </template>
 
 <script>
@@ -50,5 +52,14 @@ label {
 
 input {
   cursor: pointer;
+  border-radius: 10px;
+  height: 30px;
+  vertical-align: sub;
+  background: lightgray;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
 }
 </style>

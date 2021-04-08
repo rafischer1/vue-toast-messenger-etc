@@ -26,15 +26,15 @@ export default {
   },
   data: function() {
     return {
-      selectedColorTheme: this.$store.state.colorThemeDark
+      selectedColorTheme: this.$store.state.colorThemeLight
     };
   },
   methods: {
     toggleColorTheme() {
-      if (this.selectedColorTheme.theme === "dark") {
-        this.selectedColorTheme = this.$store.state.colorThemeLight;
-      } else {
+      if (this.selectedColorTheme.theme === "light") {
         this.selectedColorTheme = this.$store.state.colorThemeDark;
+      } else {
+        this.selectedColorTheme = this.$store.state.colorThemeLight;
       }
     }
   }
@@ -52,8 +52,6 @@ export default {
 }
 
 .app {
-  width: 100%;
-  height: 100%;
   overflow-y: scroll;
 }
 
