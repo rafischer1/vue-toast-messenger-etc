@@ -1,5 +1,5 @@
 <template>
-  <contact-icon @click="toggle()"></contact-icon>
+  <contact-icon @click="toggle"></contact-icon>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   components: { ContactIcon },
   methods: {
     toggle() {
-      iconsService.toggleContactIcon(false);
+      iconsService.toggleIcon(false, "contact");
     }
   }
 };

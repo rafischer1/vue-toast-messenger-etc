@@ -1,5 +1,5 @@
 <template>
-  <div v-for="(toast, index) of getToasts()" :key="index">
+  <div v-for="(toast, index) of getToasts()" :key="index" class="for-div">
     <toast v-bind:text="toast.text" v-bind:type="toast.type"></toast>
   </div>
 </template>

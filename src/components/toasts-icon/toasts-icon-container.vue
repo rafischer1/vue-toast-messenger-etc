@@ -10,7 +10,7 @@ export default {
   components: { ToastsIcon },
   methods: {
     toggle() {
-      iconsService.toggleToastsIcon(false);
+      iconsService.toggleIcon(false, "toasts");
     }
   }
 };

@@ -1,10 +1,21 @@
 <template>
-  <button class="info-btn" @click="resetCount()">Info</button>
+  <button
+    class="info-btn"
+    v-bind:style="{ background: color }"
+    @click="resetCount()"
+  >
+    Info
+  </button>
 </template>
 
 <script>
 export default {
   name: "info-btn",
+  data: function() {
+    return {
+      color: this.$store.commit("getColors")?.info
+    };
+  },
   methods: {
     resetCount() {
       this.toastReset();
@@ -21,12 +32,10 @@ export default {
 
 <style scoped>
 .info-btn {
-  background: whitesmoke;
   border: 1px solid whitesmoke;
 }
 
 .info-btn:active {
-  background: #d7d7d7;
-  border: 1px solid #d7d7d7;
+  filter: brightness(90%);
 }
 </style>

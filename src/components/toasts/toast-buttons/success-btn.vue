@@ -15,12 +15,11 @@ export default {
 
 <style scoped>
 .success-btn {
-  background: #8ae8a2;
-  border: 1px solid #8ae8a2;
+  background: #4bb966;
+  border: 1px solid #4bb966;
 }
 
 .success-btn:active {
-  background: #a7febe;
-  border: 1px solid #adffc3;
+  filter: brightness(90%);
 }
 </style>

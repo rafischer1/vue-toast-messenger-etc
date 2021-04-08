@@ -20,7 +20,6 @@ export default {
 }
 
 .alert-btn:active {
-  border: 1px solid #e8665c;
-  background: #e8665c;
+  filter: brightness(85%);
 }
 </style>

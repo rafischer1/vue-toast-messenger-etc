@@ -20,7 +20,6 @@ export default {
 }
 
 .warn-btn:active {
-  border: 1px solid #fff3a1;
-  background: #fff3a1;
+  filter: brightness(90%);
 }
 </style>

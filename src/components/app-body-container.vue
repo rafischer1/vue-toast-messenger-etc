@@ -11,6 +11,10 @@
         ></message-icon-container>
         <messages-container v-if="!messagesIconView"></messages-container>
       </div>
+      <div class="icon-container palette" ref="palette">
+        <palette-icon-container v-if="paletteIconView"></palette-icon-container>
+        <palette-container v-if="!paletteIconView"></palette-container>
+      </div>
       <div class="icon-container contact" ref="contact">
         <contact-icon-container v-if="contactIconView"></contact-icon-container>
         <contact-container v-if="!contactIconView"></contact-container>
@@ -29,10 +33,14 @@ import { iconsService } from "@/_services";
 import ContactIconContainer from "@/components/contact-icon/contact-icon-container";
 import ContactContainer from "@/components/contact/contact-container";
 import { VueDraggableNext } from "vue-draggable-next";
+import PaletteIconContainer from "@/components/palette-icon/palette-icon-container";
+import PaletteContainer from "@/components/palette/palette-container";
 
 export default {
   name: "app-body-container",
   components: {
+    PaletteContainer,
+    PaletteIconContainer,
     draggable: VueDraggableNext,
     ContactContainer,
     ContactIconContainer,
@@ -44,12 +52,14 @@ export default {
   toastsIconSubscription: of(false),
   messageIconSubscription: of(false),
   contactIconSubscription: of(false),
+  paletteIconSubscription: of(false),
 
   data: function() {
     return {
       toastsIconView: true,
       messagesIconView: true,
       contactIconView: true,
+      paletteIconView: true,
       list: []
     };
   },
@@ -67,6 +77,7 @@ export default {
       this.list = [
         this.$refs["toasts"],
         this.$refs["messages"],
+        this.$refs["palette"],
         this.$refs["contact"]
       ];
     }
@@ -90,11 +101,17 @@ export default {
       .subscribe(active => {
         this.contactIconView = active;
       });
+    this.paletteIconSubscription = iconsService
+      .paletteIcon$()
+      .subscribe(active => {
+        this.paletteIconView = active;
+      });
   },
   beforeUnmount() {
     this.toastsIconSubscription.unsubscribe();
     this.messageIconSubscription.unsubscribe();
     this.contactIconSubscription.unsubscribe();
+    this.paletteIconSubscription.unsubscribe();
   }
 };
 </script>

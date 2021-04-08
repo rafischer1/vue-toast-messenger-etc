@@ -10,7 +10,7 @@ export default {
   components: { MessagesIcon },
   methods: {
     toggle() {
-      iconsService.toggleMessagesIcon(false);
+      iconsService.toggleIcon(false, "messages");
     }
   }
 };

@@ -10,16 +10,7 @@ export default {
   props: ["iconType"],
   methods: {
     toggle() {
-      switch (this.iconType) {
-        case "toasts":
-          iconsService.toggleToastsIcon(true);
-          break;
-        case "messages":
-          iconsService.toggleMessagesIcon(true);
-          break;
-        case "contact":
-          iconsService.toggleContactIcon(true);
-      }
+      iconsService.toggleIcon(true, this.iconType);
     }
   }
 };
