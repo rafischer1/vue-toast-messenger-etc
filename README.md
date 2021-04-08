@@ -8,6 +8,8 @@
 
 ### 🌀 RxJS Subjects control toggling of side nav icons / components
 
+### 🎨 Observables control selection of palette colors
+
 [Deployed URL: fischer-vuex-vuerx.surge.sh](http://fischer-vuex-vuerx.surge.sh/)
 
 ```css
