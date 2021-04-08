@@ -2,7 +2,13 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    toasts: []
+    toasts: [],
+    colorThemeDark: {
+      theme: "dark",
+      background: "#1a1a1a",
+      color: "whitesmoke"
+    },
+    colorThemeLight: { theme: "light", background: "white", color: "#1a1a1a" }
   },
   mutations: {
     showToast(state, toast) {

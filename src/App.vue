@@ -1,6 +1,17 @@
 <template>
-  <app-body-container></app-body-container>
-  <toast-wrapper></toast-wrapper>
+  <div
+    class="app"
+    v-bind:style="{
+      background: selectedColorTheme.background,
+      color: selectedColorTheme.color
+    }"
+  >
+    <button @click="toggleColorTheme" class="app-toggle-btn">
+      Toggle Theme
+    </button>
+    <app-body-container></app-body-container>
+    <toast-wrapper></toast-wrapper>
+  </div>
 </template>
 
 <script>
@@ -12,6 +23,20 @@ export default {
   components: {
     AppBodyContainer,
     ToastWrapper
+  },
+  data: function() {
+    return {
+      selectedColorTheme: this.$store.state.colorThemeDark
+    };
+  },
+  methods: {
+    toggleColorTheme() {
+      if (this.selectedColorTheme.theme === "dark") {
+        this.selectedColorTheme = this.$store.state.colorThemeLight;
+      } else {
+        this.selectedColorTheme = this.$store.state.colorThemeDark;
+      }
+    }
   }
 };
 </script>
@@ -21,11 +46,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  background: #1a1a1a;
   font-family: "Avenir Next", sans-serif;
   font-size: 20px;
   font-weight: bold;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 button {
@@ -45,5 +74,13 @@ button:hover {
 
 button:active {
   background: #e2e2e2;
+}
+
+.app-toggle-btn {
+  float: right;
+  height: 3%;
+  width: 10%;
+  font-size: 10px;
+  margin-bottom: 20px;
 }
 </style>
