@@ -13,4 +13,10 @@ describe("ContactIconComponent", () => {
     const wrapper = mount(ContactIconComponent);
     expect(wrapper.html()).to.contain("C");
   });
+
+  it("should bind color: 'pink'", () => {
+    const wrapper = mount(ContactIconComponent);
+    wrapper.setData({ color: "pink" });
+    expect(wrapper.vm.color).to.equal("pink");
+  });
 });

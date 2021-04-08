@@ -18,7 +18,7 @@ export default {
 div.container {
   background: linear-gradient(#363636, #e24e42);
   width: 66%;
-  margin: 0 auto;
+  margin: 60px auto;
   padding: 2%;
   border-radius: 5px;
 }
