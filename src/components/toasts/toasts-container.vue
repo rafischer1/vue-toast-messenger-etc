@@ -27,17 +27,15 @@ export default {
 div.container {
   background: linear-gradient(#363636, #714a9a);
   padding: 2%;
-  width: 66%;
-  margin: 60px auto auto auto;
+  width: 74%;
+  margin: 5% 5% auto auto;
   border-radius: 5px;
 }
 
 div.btns-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: space-evenly;
   background: none;
-  margin: auto auto;
 }
 </style>

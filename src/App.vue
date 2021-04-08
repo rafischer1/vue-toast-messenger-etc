@@ -78,7 +78,7 @@ button:active {
   float: right;
   height: 3%;
   width: 10%;
-  font-size: 10px;
+  font-size: 11px;
   margin-bottom: 20px;
 }
 </style>
