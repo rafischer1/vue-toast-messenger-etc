@@ -1,21 +1,36 @@
 <template>
-  <button class="warn-btn" @click="warnToast()">Warn</button>
+  <button
+    class="warn-btn"
+    v-bind:style="{ background: color }"
+    @click="warnToast()"
+  >
+    Warn
+  </button>
 </template>
 
 <script>
+import { paletteService } from "@/_services";
+
 export default {
   name: "warn-btn",
+  data: function() {
+    return {
+      color: "yellow"
+    };
+  },
   methods: {
     warnToast() {
       this.$store.commit("showToast", { text: "WARNING", type: "warn" });
     }
+  },
+  created() {
+    paletteService.getColor("warn").subscribe(res => (this.color = res));
   }
 };
 </script>
 
 <style scoped>
 .warn-btn {
-  border: 1px solid #fff37a;
   background: #fff37a;
 }
 

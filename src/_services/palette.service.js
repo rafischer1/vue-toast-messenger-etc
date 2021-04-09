@@ -1,9 +1,9 @@
-import { Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
-const infoColorSubject = new Subject("#f0f0f0");
-const warnColorSubject = new Subject("#ffe674");
-const alertColorSubject = new Subject("#e24e42");
-const successColorSubject = new Subject("#4bb966");
+const infoColorSubject = new BehaviorSubject("#f0f0f0");
+const warnColorSubject = new BehaviorSubject("#ffe674");
+const alertColorSubject = new BehaviorSubject("#e24e42");
+const successColorSubject = new BehaviorSubject("#4bb966");
 
 export const paletteService = {
   setInitialState: () => {
@@ -34,6 +34,18 @@ export const paletteService = {
         return alertColorSubject.next(color);
       case "success":
         return successColorSubject.next(color);
+    }
+  },
+  getColorValue(type) {
+    switch (type) {
+      case "info":
+        return infoColorSubject?.getValue();
+      case "warn":
+        return warnColorSubject?.getValue();
+      case "alert":
+        return alertColorSubject?.getValue();
+      case "success":
+        return successColorSubject?.getValue();
     }
   }
 };

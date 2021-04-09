@@ -1,15 +1,31 @@
 <template>
   <div class="toast-parent">
-    <div class="toast-div" v-bind:class="type">
+    <div
+      class="toast-div"
+      v-bind:class="type"
+      v-bind:style="{ background: color }"
+    >
       {{ text.toUpperCase() }}
     </div>
   </div>
 </template>
 
 <script>
+import { paletteService } from "@/_services";
+
 export default {
   name: "toast",
-  props: ["text", "type"]
+  props: ["text", "type"],
+  data: function() {
+    return {
+      color: "whitesmoke"
+    };
+  },
+  created() {
+    if (this.type) {
+      this.color = paletteService.getColorValue(this.type);
+    }
+  }
 };
 </script>
 
@@ -21,8 +37,6 @@ div.toast-parent {
 }
 
 .toast-div {
-  border: 1px solid whitesmoke;
-  background: whitesmoke;
   padding: 5px 2px;
   color: #333333;
   width: 20%;
@@ -30,25 +44,5 @@ div.toast-parent {
   font-size: 18px;
   margin-right: 10px;
   position: relative;
-}
-
-.success {
-  background: #8ae8a2;
-  border: 1px solid #8ae8a2;
-}
-
-.info {
-  background: whitesmoke;
-  border: 1px solid whitesmoke;
-}
-
-.warn {
-  background: #fff37a;
-  border: 1px solid #fff37a;
-}
-
-.alert {
-  border: 1px solid #e24e42;
-  background: #e24e42;
 }
 </style>

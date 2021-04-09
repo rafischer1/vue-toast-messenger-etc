@@ -1,7 +1,10 @@
-<template><icon v-bind:title="'P'" v-bind:color="color"></icon></template>
+<template>
+  <icon v-bind:title="'P'" v-bind:color="color"></icon>
+</template>
 
 <script>
 import Icon from "@/components/icon";
+import { paletteService } from "@/_services";
 export default {
   name: "palette-icon",
   components: { Icon },
@@ -9,6 +12,11 @@ export default {
     return {
       color: "#ffe674"
     };
+  },
+  beforeCreate() {
+    paletteService.getColor("warn").subscribe(res => {
+      this.color = res;
+    });
   }
 };
 </script>

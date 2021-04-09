@@ -29,7 +29,7 @@ import MessagesContainer from "@/components/messages/messages-container";
 import ToastsIconContainer from "@/components/toasts-icon/toasts-icon-container";
 import MessageIconContainer from "@/components/messages-icon/message-icon-container";
 import { of } from "rxjs";
-import { iconsService } from "@/_services";
+import { iconsService, paletteService } from "@/_services";
 import ContactIconContainer from "@/components/contact-icon/contact-icon-container";
 import ContactContainer from "@/components/contact/contact-container";
 import { VueDraggableNext } from "vue-draggable-next";
@@ -86,6 +86,7 @@ export default {
     this.buildList();
   },
   created() {
+    paletteService.setInitialState();
     this.toastsIconSubscription = iconsService
       .toastsIcon$()
       .subscribe(active => {
