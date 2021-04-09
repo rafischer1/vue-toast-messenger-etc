@@ -4,8 +4,8 @@
     <div class="btns-container">
       <info-btn></info-btn>
       <success-btn></success-btn>
-      <error-btn></error-btn>
       <warn-btn></warn-btn>
+      <error-btn></error-btn>
     </div>
   </div>
 </template>
