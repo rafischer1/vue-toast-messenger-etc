@@ -3,14 +3,14 @@
     <div
       @click="toggleColorTheme('light')"
       class="theme light"
-      v-bind:class="{ selected: setTheme() === 'light' }"
+      v-bind:class="{ selected: lightActive }"
     >
       ☀️
     </div>
     <div
       class="theme dark"
       @click="toggleColorTheme('dark')"
-      v-bind:class="{ selected: setTheme() === 'dark' }"
+      v-bind:class="{ selected: darkActive }"
     >
       🌙
     </div>
@@ -21,12 +21,25 @@
 export default {
   name: "color-theme-toggle",
   props: ["theme"],
+  data: function() {
+    return {
+      darkActive: false,
+      lightActive: true
+    };
+  },
   methods: {
     toggleColorTheme(theme) {
       this.$emit("clicked", theme);
+      this.setActive(theme);
     },
-    setTheme() {
-      return this.theme;
+    setActive(theme) {
+      if (theme === "dark") {
+        this.lightActive = false;
+        this.darkActive = true;
+      } else {
+        this.lightActive = true;
+        this.darkActive = false;
+      }
     }
   }
 };
@@ -36,15 +49,21 @@ export default {
 .app-toggle-btn {
   float: right;
   font-size: 13px;
-  margin-bottom: 20px;
-  margin-right: 10px;
+  margin: 17px 25px;
   display: flex;
   flex-direction: row;
+  border: 1px solid lightgrey;
+  border-radius: 20px;
+  padding: 1px 10px;
+}
+
+.app-toggle-btn:hover {
+  background: #78b2be;
 }
 
 .theme {
   cursor: pointer;
-  filter: brightness(85%);
+  filter: brightness(65%);
 }
 
 .theme:hover {
@@ -53,7 +72,5 @@ export default {
 
 .selected {
   filter: brightness(100%);
-  text-decoration: underline;
-  text-decoration-color: lightgrey;
 }
 </style>

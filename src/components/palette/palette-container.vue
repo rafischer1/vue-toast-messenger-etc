@@ -47,6 +47,7 @@ div.container {
   margin: 0 auto;
   padding: 2%;
   border-radius: 5px;
+  background: lightgrey;
 }
 
 .palettes {

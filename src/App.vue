@@ -1,4 +1,8 @@
 <template>
+  <nav-bar
+    @clicked="colorTheme($event)"
+    v-bind:theme="selectedColorTheme"
+  ></nav-bar>
   <div
     class="app"
     v-bind:style="{
@@ -6,10 +10,6 @@
       color: selectedColorTheme.color
     }"
   >
-    <color-theme-toggle
-      @clicked="colorTheme($event)"
-      v-bind:theme="selectedColorTheme"
-    ></color-theme-toggle>
     <app-body-container></app-body-container>
     <toast-wrapper></toast-wrapper>
   </div>
@@ -18,12 +18,12 @@
 <script>
 import ToastWrapper from "@/components/toasts/toast-wrapper";
 import AppBodyContainer from "@/components/app-body-container";
-import ColorThemeToggle from "@/components/color-theme-toggle";
+import NavBar from "@/nav-bar";
 
 export default {
   name: "App",
   components: {
-    ColorThemeToggle,
+    NavBar,
     AppBodyContainer,
     ToastWrapper
   },
@@ -60,6 +60,7 @@ body {
 }
 
 .app {
+  margin-top: 70px;
   overflow-y: scroll;
   height: 1080px;
 }
