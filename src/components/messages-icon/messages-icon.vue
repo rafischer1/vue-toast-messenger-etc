@@ -5,6 +5,8 @@
 <script>
 import Icon from "@/components/icon";
 import { paletteService } from "@/_services";
+import { map } from "rxjs/operators";
+let colorSubscription;
 
 export default {
   name: "messages-icon",
@@ -15,9 +17,17 @@ export default {
     };
   },
   beforeCreate() {
-    paletteService.getColor("info").subscribe(res => {
-      this.color = res;
-    });
+    colorSubscription = paletteService
+      .getColor("info")
+      .pipe(
+        map(res => {
+          this.color = res;
+        })
+      )
+      .subscribe();
+  },
+  unmounted() {
+    colorSubscription.unsubscribe();
   }
 };
 </script>

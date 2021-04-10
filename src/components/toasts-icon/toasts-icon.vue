@@ -4,13 +4,30 @@
 
 <script>
 import Icon from "@/components/icon";
+import { paletteService } from "@/_services";
+import { map } from "rxjs/operators";
+let colorSubscription;
+
 export default {
   name: "toasts-icon",
   components: { Icon },
   data: function() {
     return {
-      color: "#714a9a"
+      color: "#4bb966"
     };
+  },
+  beforeCreate() {
+    colorSubscription = paletteService
+      .getColor("success")
+      .pipe(
+        map(res => {
+          this.color = res;
+        })
+      )
+      .subscribe();
+  },
+  unmounted() {
+    colorSubscription.unsubscribe();
   }
 };
 </script>

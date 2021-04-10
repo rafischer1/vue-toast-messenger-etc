@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-bind:style="{ background: createBackgroundString }">
     <toggle-btn v-bind:icon-type="'messages'"></toggle-btn>
     <send-messages></send-messages>
     <messages></messages>
@@ -10,10 +10,37 @@
 import Messages from "@/components/messages/messages";
 import SendMessages from "@/components/messages/send-messages";
 import ToggleBtn from "@/components/toggle-btn";
+import { paletteService } from "@/_services";
+import { map } from "rxjs/operators";
+let colorSubscription;
 
 export default {
   name: "messages-container",
-  components: { ToggleBtn, SendMessages, Messages }
+  components: { ToggleBtn, SendMessages, Messages },
+  data: function() {
+    return {
+      initialColor: "#363636",
+      color: "#4a999a"
+    };
+  },
+  beforeCreate() {
+    colorSubscription = paletteService
+      .getColor("info")
+      .pipe(
+        map(res => {
+          this.color = res;
+        })
+      )
+      .subscribe();
+  },
+  computed: {
+    createBackgroundString() {
+      return `linear-gradient(${this.initialColor}, ${this.color})`;
+    }
+  },
+  unmounted() {
+    colorSubscription.unsubscribe();
+  }
 };
 </script>
 
