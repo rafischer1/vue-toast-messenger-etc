@@ -1,6 +1,8 @@
 <template>
-  <div v-for="(toast, index) of getToasts()" :key="index" class="for-div">
-    <toast v-bind:text="toast.text" v-bind:type="toast.type"></toast>
+  <div class="toasts-container">
+    <div v-for="(toast, index) of getToasts()" :key="index" class="for-div">
+      <toast v-bind:text="toast.text" v-bind:type="toast.type"></toast>
+    </div>
   </div>
 </template>
 
@@ -36,4 +38,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+div.toasts-container {
+  position: fixed;
+  top: 80%;
+  right: 20px;
+  width: 500px;
+  z-index: 999999;
+}
+</style>

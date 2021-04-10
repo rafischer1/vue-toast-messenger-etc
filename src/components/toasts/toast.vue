@@ -37,9 +37,9 @@ div.toast-parent {
 }
 
 .toast-div {
-  padding: 5px 2px;
+  padding: 5px 15px;
   color: #333333;
-  width: 20%;
+  width: fit-content;
   border-radius: 5px;
   font-size: 18px;
   margin-right: 10px;

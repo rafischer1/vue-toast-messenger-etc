@@ -11,7 +11,7 @@
     }"
   >
     <app-body-container></app-body-container>
-    <toast-wrapper></toast-wrapper>
+    <toast-wrapper class="toasts-wrapper"></toast-wrapper>
   </div>
 </template>
 
@@ -63,6 +63,7 @@ body {
   margin-top: 70px;
   overflow-y: scroll;
   height: 1080px;
+  padding: 0 5px;
 }
 
 button {
