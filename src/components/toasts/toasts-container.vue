@@ -54,8 +54,8 @@ export default {
 <style scoped>
 div.container {
   padding: 2%;
-  width: 70%;
-  margin: 5% 11% auto auto;
+  width: 66%;
+  margin: 5% 15% auto auto;
   border-radius: 5px;
 }
 
